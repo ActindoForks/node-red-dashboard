@@ -341,7 +341,7 @@ function init(server, app, log, redSettings) {
     var dashboardMiddleware = function(req, res, next) { next(); }
 
     if (uiSettings.middleware) {
-        if (typeof uiSettings.middleware === "function") {
+        if (typeof uiSettings.middleware === "function" || Array.isArray(uiSettings.middleware)) {
             dashboardMiddleware = uiSettings.middleware;
         }
     }
